@@ -39,13 +39,15 @@ function App() {
   
   const htmlData = adalaber
   .filter((eachAdalaber) => eachAdalaber.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
-  .filter((eachAdalaber) => eachAdalaber.counselor === searchTutor)
+
+  //Sin una opcion seleccionada no pinta la lista por defecto
+  //.filter((eachAdalaber) => eachAdalaber.counselor === searchTutor)
   .map((data) => {
     return (
-      <tr key={data.id}>
-      <td>{data.name}</td>
-      <td>{data.counselor}</td>
-      <td>{data.speciality}</td>
+      <tr key={data.id} className='table_body'>
+      <td className='table_body-data'>{data.name}</td>
+      <td className='table_body-data'>{data.counselor}</td>
+      <td className='table_body-data'>{data.speciality}</td>
     </tr>
     )
   })
@@ -56,24 +58,24 @@ function App() {
     <div className="App">
       <h1 className="title">Adalabers</h1>
 
-      <form action="">
+      <form action="" className='search'>
         <label htmlFor="">Buscar:</label>
         <input type="search" id='search' placeholder='Ej: Carmen' onInput={handleSearch} />
-        <label htmlFor="tutor">Selecciona un tutor</label>
+        {/* <label htmlFor="tutor">Selecciona un tutor</label>
         <select name="tutor" id="tutor" onChange={handleSearchTutor}>
           <option selected disabled>Elige una opcion</option>
           <option value="Ivan">Ivan</option>
           <option value="Yanelis">Yanelis</option>
           <option value="Dayana">Dayana</option>
-        </select>
+        </select> */}
       </form>
 
       <table className="table"> 
   {/* <!-- Fila de cabecera -->  */}
-        <thead><tr> 
-          <th>Nombre</th> 
-          <th>Tutora</th> 
-          <th>Especialidad</th> 
+        <thead><tr className='table_head'> 
+          <th className='table_head-data'>Nombre</th> 
+          <th className='table_head-data'>Tutora</th> 
+          <th className='table_head-data'>Especialidad</th> 
         </tr></thead>
             {/* <!-- Fin fila de cabecera -->  */}
       
@@ -82,8 +84,8 @@ function App() {
         </tbody>
         </table>
 
-        <form action="">
-          <h2>Añadir nueva adalaber</h2>
+        <form action="" className='addAdalaber'>
+          <h2 className='titleAdd'>Añadir nueva adalaber</h2>
           <label htmlFor="name">Nombre</label>
           <input type="text" id='name' value={addAdalaber.name} onInput={handleAddAdalaber}/>
           <label htmlFor="counselor">Tutor</label>

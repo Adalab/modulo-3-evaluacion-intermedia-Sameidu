@@ -1,3 +1,55 @@
 @import 'core/reset';
 
 
+.table{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &_head{
+        background-color: aquamarine;
+        &-data{
+            font-size: 20px;
+            padding: 15px;
+        }
+    }
+    &_body{
+        background-color: whitesmoke;
+        &-data{
+            font-size: 14px;
+            padding: 15px;
+        }
+    }
+}
+
+.title{
+    font-size: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.search{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.addAdalaber{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.titleAdd{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
