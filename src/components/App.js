@@ -10,6 +10,9 @@ function App() {
     counselor: '',
     speciality: ''
   });
+  const [search, setSearch] = useState('');
+  const [searchTutor, setSearchTutor] = useState('');
+
 
   const handleAddAdalaber = (ev) => {
     setAddAdalaber({...addAdalaber, [ev.target.id]: ev.target.value})
@@ -26,7 +29,18 @@ function App() {
     })
   };
 
-  const htmlData = adalaber.map((data) => {
+  const handleSearch = (ev) => {
+    setSearch(ev.target.value)
+  };
+
+  const handleSearchTutor = (ev) => {
+    setSearchTutor(ev.target.value)
+  }
+  
+  const htmlData = adalaber
+  .filter((eachAdalaber) => eachAdalaber.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
+  .filter((eachAdalaber) => eachAdalaber.counselor === searchTutor)
+  .map((data) => {
     return (
       <tr key={data.id}>
       <td>{data.name}</td>
@@ -37,9 +51,22 @@ function App() {
   })
 
 
+
   return (
     <div className="App">
       <h1 className="title">Adalabers</h1>
+
+      <form action="">
+        <label htmlFor="">Buscar:</label>
+        <input type="search" id='search' placeholder='Ej: Carmen' onInput={handleSearch} />
+        <label htmlFor="tutor">Selecciona un tutor</label>
+        <select name="tutor" id="tutor" onChange={handleSearchTutor}>
+          <option selected disabled>Elige una opcion</option>
+          <option value="Ivan">Ivan</option>
+          <option value="Yanelis">Yanelis</option>
+          <option value="Dayana">Dayana</option>
+        </select>
+      </form>
 
       <table className="table"> 
   {/* <!-- Fila de cabecera -->  */}
