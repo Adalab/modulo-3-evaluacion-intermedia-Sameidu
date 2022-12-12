@@ -91,7 +91,7 @@ function App() {
           <label htmlFor="counselor">Tutor</label>
           <input type="text" id='counselor' value={addAdalaber.counselor} onInput={handleAddAdalaber}/>
           <label htmlFor="speciality">Especialidad</label>
-          <input type="text" id='speciality' value={addAdalaber.specialty} onInput={handleAddAdalaber}/>
+          <input type="text" id='speciality' value={addAdalaber.speciality} onInput={handleAddAdalaber}/>
           <input type="submit" onClick={handleClickAdd}/>
         </form>
     </div>
